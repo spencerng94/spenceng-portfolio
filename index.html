@@ -57,6 +57,7 @@
         background: #57534e;
       }
     </style>
+
   <script type="importmap">
 {
   "imports": {
@@ -69,8 +70,14 @@
   }
 }
 </script>
+  <script type="module" crossorigin src="/assets/index-C_ww4O37.js"></script>
 </head>
   <body class="bg-stone-950 text-stone-300 font-sans antialiased selection:bg-orange-500/30 selection:text-orange-200">
-    <div id="root"></div>
+    <div id="root">
+      <!-- Loading State -->
+      <div class="min-h-screen flex items-center justify-center">
+        <div class="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-orange-500"></div>
+      </div>
+    </div>
   </body>
 </html>
