@@ -75,9 +75,35 @@
   <body class="bg-stone-950 text-stone-300 font-sans antialiased selection:bg-orange-500/30 selection:text-orange-200">
     <div id="root">
       <!-- Loading State -->
-      <div class="min-h-screen flex items-center justify-center">
+      <div id="loading-spinner" class="min-h-screen flex items-center justify-center flex-col gap-4">
         <div class="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-orange-500"></div>
+        <p class="text-stone-500 text-sm font-mono animate-pulse">Initializing system...</p>
       </div>
     </div>
+
+    <script>
+      // Safety timeout: If React doesn't mount within 3 seconds, show error
+      // This usually happens if deployed without a build step
+      setTimeout(() => {
+        const root = document.getElementById('root');
+        // If the spinner is still there (meaning React hasn't cleared it)
+        if (document.getElementById('loading-spinner')) {
+          root.innerHTML = `
+            <div class="min-h-screen flex items-center justify-center p-4">
+              <div class="max-w-md text-center space-y-4">
+                <h2 class="text-xl font-bold text-orange-500">Initialization Error</h2>
+                <p class="text-stone-400 text-sm">
+                  If you are viewing this on GitHub Pages, the browser cannot run raw .tsx files.
+                  You must build the project before deploying.
+                </p>
+                <p class="text-xs text-stone-600 font-mono bg-stone-900 p-2 rounded">
+                  Try running 'npm run build' and deploying the 'dist' folder.
+                </p>
+              </div>
+            </div>
+          `;
+        }
+      }, 3000);
+    </script>
   </body>
 </html>
