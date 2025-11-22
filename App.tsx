@@ -5,7 +5,6 @@ import Skills from './components/Skills';
 import Experience from './components/Experience';
 import Education from './components/Education';
 import Contact from './components/Contact';
-import ChatWidget from './components/ChatWidget';
 
 const App: React.FC = () => {
   return (
@@ -18,7 +17,6 @@ const App: React.FC = () => {
         <Education />
       </main>
       <Contact />
-      <ChatWidget />
     </div>
   );
 };

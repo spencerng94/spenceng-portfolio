@@ -36,7 +36,7 @@ const Contact: React.FC = () => {
         <div className="mt-12 pt-8 border-t border-stone-900 flex flex-col items-center">
             <div className="flex items-center gap-2 text-stone-600 text-sm mb-2">
                 <Terminal size={14} />
-                <span>Designed & Built with React + Tailwind + Gemini</span>
+                <span>Designed & Built with React + Tailwind</span>
             </div>
             <p className="text-stone-700 text-xs">© {new Date().getFullYear()} Spencer Ng. All rights reserved.</p>
         </div>
