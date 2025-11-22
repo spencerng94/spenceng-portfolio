@@ -1,3 +1,4 @@
+
 export interface Job {
   company: string;
   role: string;
@@ -29,8 +30,7 @@ export interface ResumeData {
 
 export enum ChatSender {
   USER = 'user',
-  BOT = 'bot',
-  SYSTEM = 'system'
+  BOT = 'bot'
 }
 
 export interface ChatMessage {
