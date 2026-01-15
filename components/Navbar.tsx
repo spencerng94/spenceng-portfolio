@@ -34,21 +34,27 @@ const Navbar: React.FC = () => {
           </div>
           
           <div className="hidden md:block">
-            <div className="ml-10 flex items-baseline space-x-8">
-              {navLinks.map((link) => (
-                <a
-                  key={link.name}
-                  href={link.href}
-                  className="text-stone-300 hover:text-orange-400 px-3 py-2 rounded-md text-sm font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 focus:ring-offset-stone-950"
-                  aria-label={`Navigate to ${link.name} section`}
-                >
-                  {link.name}
-                </a>
+            <div className="ml-10 flex items-baseline">
+              {navLinks.map((link, index) => (
+                <React.Fragment key={link.name}>
+                  <a
+                    href={link.href}
+                    className="text-stone-300 hover:text-orange-400 px-4 py-2 rounded-md text-sm font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 focus:ring-offset-stone-950"
+                    aria-label={`Navigate to ${link.name} section`}
+                  >
+                    {link.name}
+                  </a>
+                  {index < navLinks.length - 1 && (
+                    <span className="hidden lg:block border-r border-stone-700/50 h-4 self-center" />
+                  )}
+                </React.Fragment>
               ))}
             </div>
           </div>
 
-          <div className="hidden md:flex items-center space-x-4">
+          <div className="hidden md:flex items-center">
+            <span className="hidden lg:block border-r border-stone-700/50 h-4 mx-4" />
+            <div className="flex items-center space-x-4">
              <a 
                href="mailto:spencerng94@gmail.com" 
                className="text-stone-400 hover:text-stone-100 transition-colors focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 focus:ring-offset-stone-950 rounded p-1"
@@ -74,6 +80,7 @@ const Navbar: React.FC = () => {
              >
                <Github size={20} />
              </a>
+            </div>
           </div>
 
           <div className="md:hidden">
