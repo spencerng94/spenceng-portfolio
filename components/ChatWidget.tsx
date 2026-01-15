@@ -95,10 +95,12 @@ const ChatWidget: React.FC = () => {
       {/* FAB */}
       <button
         onClick={() => setIsOpen(true)}
-        className={`fixed bottom-6 right-6 p-4 bg-orange-500 hover:bg-orange-600 text-white rounded-full shadow-2xl transition-transform hover:scale-110 z-40 ${isOpen ? 'scale-0' : 'scale-100'}`}
+        className={`fixed bottom-6 right-6 p-4 bg-orange-500 hover:bg-orange-600 text-white rounded-full shadow-2xl transition-transform hover:scale-110 z-40 ${isOpen ? 'scale-0' : 'scale-100'} focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 focus:ring-offset-stone-950`}
+        aria-label="Open chat widget"
+        aria-expanded={isOpen}
       >
         <MessageSquare size={28} />
-        <span className="absolute -top-1 -right-1 w-3 h-3 bg-rose-500 rounded-full animate-ping"></span>
+        <span className="absolute -top-1 -right-1 w-3 h-3 bg-rose-500 rounded-full animate-ping" aria-hidden="true"></span>
       </button>
 
       {/* Chat Window */}
@@ -118,7 +120,11 @@ const ChatWidget: React.FC = () => {
               </p>
             </div>
           </div>
-          <button onClick={() => setIsOpen(false)} className="text-stone-400 hover:text-white transition-colors">
+          <button 
+            onClick={() => setIsOpen(false)} 
+            className="text-stone-400 hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-orange-500 rounded p-1"
+            aria-label="Close chat widget"
+          >
             <X size={20} />
           </button>
         </div>

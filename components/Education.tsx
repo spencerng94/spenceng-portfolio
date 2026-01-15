@@ -14,7 +14,7 @@ const Education: React.FC = () => {
       return 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/UCLA_Bruins_script.svg/512px-UCLA_Bruins_script.svg.png';
     }
     if (school.includes('Galvanize')) {
-      return 'https://logo.clearbit.com/galvanize.com';
+      return '/images/galvanize.jpg';
     }
     if (school.includes('Google')) {
       // Google G Logo
@@ -24,9 +24,14 @@ const Education: React.FC = () => {
   };
 
   return (
-    <section className="py-24 bg-stone-900/30">
+    <section className="py-24 bg-stone-900/30" aria-label="Education and Certifications">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-3xl font-bold text-stone-100 mb-12 text-center">Education & Certifications</h2>
+        <div className="text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold text-stone-100 mb-4">Education & Certifications</h2>
+          <p className="text-stone-400 max-w-2xl mx-auto text-lg">
+            Continuous learning and professional development
+          </p>
+        </div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {RESUME.education.map((edu, idx) => {

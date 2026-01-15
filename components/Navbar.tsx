@@ -13,8 +13,9 @@ const Navbar: React.FC = () => {
 
   const navLinks = [
     { name: 'About', href: '#about' },
-    { name: 'Experience', href: '#experience' },
     { name: 'Skills', href: '#skills' },
+    { name: 'Projects', href: '#projects' },
+    { name: 'Experience', href: '#experience' },
     { name: 'Contact', href: '#contact' },
   ];
 
@@ -23,7 +24,11 @@ const Navbar: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <div className="flex-shrink-0">
-            <a href="#" className="font-mono text-xl font-bold text-orange-500 tracking-tighter hover:text-orange-400 transition-colors">
+            <a 
+              href="#" 
+              className="font-mono text-xl font-bold text-orange-500 tracking-tighter hover:text-orange-400 transition-colors focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 focus:ring-offset-stone-950 rounded"
+              aria-label="Return to top of page"
+            >
               &lt;SpencerNg /&gt;
             </a>
           </div>
@@ -34,7 +39,8 @@ const Navbar: React.FC = () => {
                 <a
                   key={link.name}
                   href={link.href}
-                  className="text-stone-300 hover:text-orange-400 px-3 py-2 rounded-md text-sm font-medium transition-colors"
+                  className="text-stone-300 hover:text-orange-400 px-3 py-2 rounded-md text-sm font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 focus:ring-offset-stone-950"
+                  aria-label={`Navigate to ${link.name} section`}
                 >
                   {link.name}
                 </a>
@@ -43,8 +49,31 @@ const Navbar: React.FC = () => {
           </div>
 
           <div className="hidden md:flex items-center space-x-4">
-             <a href="https://github.com/spencerng94" target="_blank" rel="noopener noreferrer" className="text-stone-400 hover:text-stone-100 transition-colors"><Github size={20} /></a>
-             <a href="https://www.linkedin.com/in/ngspencer94" target="_blank" rel="noopener noreferrer" className="text-stone-400 hover:text-stone-100 transition-colors"><Linkedin size={20} /></a>
+             <a 
+               href="mailto:spencerng94@gmail.com" 
+               className="text-stone-400 hover:text-stone-100 transition-colors focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 focus:ring-offset-stone-950 rounded p-1"
+               aria-label="Send email to Spencer Ng"
+             >
+               <Mail size={20} />
+             </a>
+             <a 
+               href="https://www.linkedin.com/in/ngspencer94" 
+               target="_blank" 
+               rel="noopener noreferrer" 
+               className="text-stone-400 hover:text-stone-100 transition-colors focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 focus:ring-offset-stone-950 rounded p-1"
+               aria-label="Visit Spencer Ng's LinkedIn profile"
+             >
+               <Linkedin size={20} />
+             </a>
+             <a 
+               href="https://github.com/spencerng94" 
+               target="_blank" 
+               rel="noopener noreferrer" 
+               className="text-stone-400 hover:text-stone-100 transition-colors focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 focus:ring-offset-stone-950 rounded p-1"
+               aria-label="Visit Spencer Ng's GitHub profile"
+             >
+               <Github size={20} />
+             </a>
           </div>
 
           <div className="md:hidden">
