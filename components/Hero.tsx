@@ -21,11 +21,11 @@ const Hero: React.FC = () => {
       {/* Grid pattern overlay for depth */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#1c1917_1px,transparent_1px),linear-gradient(to_bottom,#1c1917_1px,transparent_1px)] bg-[size:4rem_4rem] opacity-20 pointer-events-none" />
 
-      <div className="w-full max-w-full relative z-10">
-        {/* 2-Column Grid: 60/40 split with 2rem gap, flexbox for alignment */}
-        <div className="grid grid-cols-1 lg:grid-cols-[60%_40%] gap-8 lg:gap-8 min-h-[calc(100vh-4rem)]">
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        {/* 2-Column Grid: 60/40 split with healthy gap, flexbox for alignment */}
+        <div className="grid grid-cols-1 lg:grid-cols-[60%_40%] gap-8 lg:gap-12 xl:gap-16 min-h-[calc(100vh-4rem)]">
           {/* Left Side - Text Content (60%) */}
-          <div className={`relative px-4 sm:px-6 lg:px-8 xl:px-12 py-12 lg:py-12 flex items-center space-y-6 text-center lg:text-left transition-opacity duration-1000 ${mounted ? 'opacity-100' : 'opacity-0'}`}>
+          <div className={`relative py-12 lg:py-12 flex items-center space-y-6 text-center lg:text-left transition-opacity duration-1000 ${mounted ? 'opacity-100' : 'opacity-0'}`}>
             {/* Subtle background gradient that bleeds into image */}
             <div className="absolute inset-0 bg-gradient-to-r from-stone-950 via-stone-950/95 to-transparent pointer-events-none"></div>
             
@@ -86,7 +86,7 @@ const Hero: React.FC = () => {
 
           {/* Right Side - Profile Image (40%) */}
           <div className={`relative flex items-center justify-center lg:justify-end py-12 lg:py-12 transition-opacity duration-1000 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-            <div className="relative w-full max-w-full px-4 sm:px-6 lg:px-8">
+            <div className="relative w-full max-w-full">
               {/* Photo container with elegant vertical rectangle */}
               <div 
                 className="relative w-full overflow-hidden rounded-2xl border border-stone-800/50 shadow-xl shadow-stone-900/50 bg-stone-900/50 min-h-[450px] max-h-[60vh] lg:max-h-none"
