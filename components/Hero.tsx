@@ -89,7 +89,7 @@ const Hero: React.FC = () => {
             <div className="relative w-full max-w-full">
               {/* Photo container with constrained dimensions and aspect ratio */}
               <div 
-                className="relative w-full overflow-hidden max-h-[500px] lg:max-h-[60vh]"
+                className="relative w-full overflow-hidden max-h-[500px] lg:max-h-[60vh] bg-stone-900/50"
                 style={{
                   aspectRatio: '4 / 5',
                 }}
@@ -100,7 +100,7 @@ const Hero: React.FC = () => {
                   className="w-full h-full"
                   style={{
                     objectFit: 'cover',
-                    objectPosition: 'top',
+                    objectPosition: 'center 20%',
                     borderRadius: '1rem 0 0 1rem',
                     maskImage: 'linear-gradient(to right, black 0%, black 80%, transparent 100%)',
                     WebkitMaskImage: 'linear-gradient(to right, black 0%, black 80%, transparent 100%)',
