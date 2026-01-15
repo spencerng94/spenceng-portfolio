@@ -61,15 +61,15 @@ const Experience: React.FC = () => {
     <section id="experience" className="scroll-mt-24 py-24 bg-stone-950" aria-label="Professional Experience">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-stone-100 mb-4">Professional Experience</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-stone-100 mb-4 tracking-tight">Professional Experience</h2>
           <p className="text-stone-400 max-w-2xl mx-auto text-lg">
             Building production-grade systems and leading technical initiatives at scale
           </p>
         </div>
         
         <div className="space-y-12 relative">
-          {/* Enhanced Vertical Line for Desktop */}
-          <div className="hidden md:block absolute left-8 top-4 bottom-4 w-0.5 bg-gradient-to-b from-orange-500/50 via-stone-800 to-stone-800"></div>
+          {/* Enhanced Vertical Timeline connecting company logos */}
+          <div className="hidden md:block absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-orange-500/60 via-orange-500/30 to-stone-800/50"></div>
 
           {RESUME.experience.map((job, index) => {
             const logoUrl = getCompanyLogo(job.company);
@@ -96,7 +96,7 @@ const Experience: React.FC = () => {
                   )}
                 </div>
 
-                <div className="bg-stone-900 p-8 rounded-2xl border border-stone-800 shadow-sm hover:shadow-xl hover:border-orange-500/30 transition-all duration-300 group-hover:bg-stone-900/95">
+                <div className="bg-stone-900/80 backdrop-blur-sm p-8 rounded-2xl border border-stone-800/50 shadow-sm transition-all duration-300 group-hover:-translate-y-1 group-hover:shadow-2xl group-hover:border-orange-500/40 group-hover:bg-stone-900/90">
                   <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-6">
                     <div className="flex-1">
                       <div className="flex items-center gap-3 md:hidden mb-4">
@@ -117,14 +117,14 @@ const Experience: React.FC = () => {
                       <h3 className="text-2xl font-bold text-stone-100 mb-1">{job.role}</h3>
                       <p className="text-xl text-orange-400 mt-1 hidden md:block font-medium">{job.company}</p>
                     </div>
-                    <div className="mt-4 md:mt-0 flex flex-col md:items-end text-stone-400 text-sm font-mono space-y-2">
-                      <div className="flex items-center gap-2 bg-stone-950 px-3 py-1.5 rounded-lg border border-stone-800">
-                        <Calendar size={14} /> 
-                        <span>{job.period}</span>
+                    <div className="mt-4 md:mt-0 flex flex-col md:items-end text-gray-400 text-sm font-mono space-y-2">
+                      <div className="flex items-center gap-2 bg-stone-950/50 px-3 py-1.5 rounded-lg border border-stone-800/50">
+                        <Calendar size={14} className="text-gray-400" /> 
+                        <span className="tracking-wider">{job.period}</span>
                       </div>
-                      <div className="flex items-center gap-2 bg-stone-950 px-3 py-1.5 rounded-lg border border-stone-800">
-                        <MapPin size={14} /> 
-                        <span>{job.location}</span>
+                      <div className="flex items-center gap-2 bg-stone-950/50 px-3 py-1.5 rounded-lg border border-stone-800/50">
+                        <MapPin size={14} className="text-gray-400" /> 
+                        <span className="tracking-wider">{job.location}</span>
                       </div>
                     </div>
                   </div>
@@ -135,11 +135,12 @@ const Experience: React.FC = () => {
                       return (
                         <li 
                           key={hIdx} 
-                          className="flex items-start gap-3 text-stone-300 leading-relaxed group/item"
+                          className="flex items-start gap-3 text-stone-300 leading-snug group/item"
+                          style={{ letterSpacing: '-0.01em' }}
                         >
                           <span className="mt-2 w-1.5 h-1.5 bg-orange-500 rounded-full flex-shrink-0 group-hover/item:bg-orange-400 transition-colors" />
                           <div className="flex-1">
-                            <p className="mb-1">{highlight}</p>
+                            <p className="mb-1 leading-snug" style={{ letterSpacing: '-0.01em' }}>{highlight}</p>
                             {metrics.length > 0 && (
                               <div className="flex flex-wrap gap-2 mt-2">
                                 {metrics.map((metric, mIdx) => (

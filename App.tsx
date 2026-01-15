@@ -5,7 +5,6 @@ import Skills from './components/Skills';
 import Experience from './components/Experience';
 import Education from './components/Education';
 import Contact from './components/Contact';
-import ChatWidget from './components/ChatWidget';
 
 // Lazy load Projects component for better performance
 const Projects = lazy(() => import('./components/Projects'));
@@ -43,7 +42,6 @@ const App: React.FC = () => {
         <Education />
       </main>
       <Contact />
-      <ChatWidget />
     </div>
   );
 };

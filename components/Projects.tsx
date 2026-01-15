@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { ExternalLink, Github, Code2, Server, Cloud, ArrowRight } from 'lucide-react';
 
 interface Project {
@@ -70,6 +70,8 @@ const projects: Project[] = [
 
 const Projects: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
+  const [visibleProjects, setVisibleProjects] = useState<Set<number>>(new Set());
+  const projectRefs = useRef<(HTMLDivElement | null)[]>([]);
 
   const categories = [
     { id: 'all', label: 'All Projects', icon: Code2 },
@@ -82,6 +84,74 @@ const Projects: React.FC = () => {
   const filteredProjects = selectedCategory === 'all' 
     ? projects 
     : projects.filter(p => p.category === selectedCategory);
+
+  // Reset visible projects when category changes
+  useEffect(() => {
+    setVisibleProjects(new Set());
+  }, [selectedCategory]);
+
+  // Set up IntersectionObserver for scroll-reveal animations
+  useEffect(() => {
+    // Check if IntersectionObserver is supported
+    if (typeof IntersectionObserver === 'undefined') {
+      // Fallback: show all projects immediately
+      setVisibleProjects(new Set(filteredProjects.map((_, i) => i)));
+      return;
+    }
+
+    const observers: (IntersectionObserver | null)[] = [];
+    
+    // Reset refs array to match filtered projects length
+    projectRefs.current = new Array(filteredProjects.length).fill(null);
+    
+    // Use a small delay to ensure DOM is updated with refs
+    const timeoutId = setTimeout(() => {
+      projectRefs.current.forEach((ref, index) => {
+        if (!ref) {
+          // If ref is still null, show the card anyway after a delay
+          setTimeout(() => {
+            setVisibleProjects((prev) => new Set([...prev, index]));
+          }, 500);
+          return;
+        }
+
+        // Check if element is already in viewport
+        const rect = ref.getBoundingClientRect();
+        const isInViewport = rect.top < window.innerHeight && rect.bottom > 0;
+        
+        if (isInViewport) {
+          // Already visible, show immediately
+          setVisibleProjects((prev) => new Set([...prev, index]));
+          return;
+        }
+
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                setVisibleProjects((prev) => new Set([...prev, index]));
+                observer.unobserve(entry.target);
+              }
+            });
+          },
+          {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px',
+          }
+        );
+
+        observer.observe(ref);
+        observers.push(observer);
+      });
+    }, 100);
+
+    return () => {
+      clearTimeout(timeoutId);
+      observers.forEach((observer) => {
+        if (observer) observer.disconnect();
+      });
+    };
+  }, [filteredProjects.length, selectedCategory]);
 
   const getCategoryColor = (category: string) => {
     const colors = {
@@ -128,10 +198,21 @@ const Projects: React.FC = () => {
 
         {/* Projects Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {filteredProjects.map((project, index) => (
+          {filteredProjects.map((project, index) => {
+            const isVisible = visibleProjects.has(index);
+            return (
             <div
-              key={index}
-              className="bg-stone-900 p-8 rounded-2xl border border-stone-800 hover:border-orange-500/30 hover:shadow-xl hover:shadow-orange-500/5 transition-all duration-300 group flex flex-col"
+              key={`${project.title}-${index}`}
+              ref={(el) => {
+                if (el) {
+                  projectRefs.current[index] = el;
+                }
+              }}
+              className={`bg-stone-900/80 backdrop-blur-sm p-8 rounded-2xl border border-stone-800/50 transition-all duration-500 group flex flex-col ${
+                isVisible 
+                  ? 'opacity-100 translate-y-0' 
+                  : 'opacity-0 translate-y-8'
+              } hover:-translate-y-1 hover:border-orange-500/40 hover:shadow-2xl hover:shadow-orange-500/10 hover:bg-stone-900/90`}
             >
               {/* Category Badge */}
               <div className="flex items-center justify-between mb-4">
@@ -201,14 +282,15 @@ const Projects: React.FC = () => {
               {/* Highlights */}
               <ul className="space-y-2 mt-4 pt-4 border-t border-stone-800">
                 {project.highlights.map((highlight, hIdx) => (
-                  <li key={hIdx} className="flex items-start gap-2 text-sm text-stone-300">
+                  <li key={hIdx} className="flex items-start gap-2 text-sm text-stone-300 leading-snug" style={{ letterSpacing: '-0.01em' }}>
                     <ArrowRight size={14} className="text-orange-400 mt-0.5 flex-shrink-0" />
-                    <span>{highlight}</span>
+                    <span className="leading-snug" style={{ letterSpacing: '-0.01em' }}>{highlight}</span>
                   </li>
                 ))}
               </ul>
             </div>
-          ))}
+            );
+          })}
         </div>
 
         {filteredProjects.length === 0 && (

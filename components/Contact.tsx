@@ -26,11 +26,11 @@ const Contact: React.FC = () => {
         <div className="flex flex-wrap justify-evenly items-start max-w-3xl mx-auto mb-16">
           <a 
             href="mailto:spencerng94@gmail.com" 
-            className="flex flex-col items-center gap-3 text-stone-400 hover:text-orange-400 transition-all group focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 focus:ring-offset-stone-950 rounded-lg p-2 flex-1 min-w-[140px]"
+            className="flex flex-col items-center gap-3 text-stone-400 hover:text-orange-400 transition-all duration-300 group focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 focus:ring-offset-stone-950 rounded-lg p-2 flex-1 min-w-[140px]"
             aria-label="Send email to Spencer Ng"
           >
-            <div className="p-4 bg-stone-900 rounded-full group-hover:bg-orange-500/10 group-hover:scale-110 transition-all border border-stone-800 group-hover:border-orange-500/30">
-              <Mail size={24} className="group-hover:text-orange-400" />
+            <div className="p-4 bg-stone-900/80 backdrop-blur-sm rounded-full group-hover:bg-orange-500/10 group-hover:scale-110 transition-all duration-300 border border-stone-800/50 group-hover:border-orange-500/40">
+              <Mail size={28} className="group-hover:text-orange-400 transition-colors duration-300" />
             </div>
             <span className="text-sm font-medium">Email</span>
             <span className="text-xs text-stone-600 group-hover:text-stone-500">spencerng94@gmail.com</span>
@@ -39,11 +39,11 @@ const Contact: React.FC = () => {
             href="https://www.linkedin.com/in/ngspencer94" 
             target="_blank" 
             rel="noopener noreferrer" 
-            className="flex flex-col items-center gap-3 text-stone-400 hover:text-blue-400 transition-all group focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-stone-950 rounded-lg p-2 flex-1 min-w-[140px]"
+            className="flex flex-col items-center gap-3 text-stone-400 hover:text-blue-400 transition-all duration-300 group focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-stone-950 rounded-lg p-2 flex-1 min-w-[140px]"
             aria-label="Visit Spencer Ng's LinkedIn profile"
           >
-            <div className="p-4 bg-stone-900 rounded-full group-hover:bg-blue-500/10 group-hover:scale-110 transition-all border border-stone-800 group-hover:border-blue-500/30">
-              <Linkedin size={24} className="group-hover:text-blue-400" />
+            <div className="p-4 bg-stone-900/80 backdrop-blur-sm rounded-full group-hover:bg-blue-500/10 group-hover:scale-110 transition-all duration-300 border border-stone-800/50 group-hover:border-blue-500/40">
+              <Linkedin size={28} className="group-hover:text-blue-400 transition-colors duration-300" />
             </div>
             <span className="text-sm font-medium">LinkedIn</span>
             <span className="text-xs text-stone-600 group-hover:text-stone-500">Connect with me</span>
@@ -52,11 +52,11 @@ const Contact: React.FC = () => {
             href="https://github.com/spencerng94" 
             target="_blank" 
             rel="noopener noreferrer" 
-            className="flex flex-col items-center gap-3 text-stone-400 hover:text-white transition-all group focus:outline-none focus:ring-2 focus:ring-stone-500 focus:ring-offset-2 focus:ring-offset-stone-950 rounded-lg p-2 flex-1 min-w-[140px]"
+            className="flex flex-col items-center gap-3 text-stone-400 hover:text-white transition-all duration-300 group focus:outline-none focus:ring-2 focus:ring-stone-500 focus:ring-offset-2 focus:ring-offset-stone-950 rounded-lg p-2 flex-1 min-w-[140px]"
             aria-label="Visit Spencer Ng's GitHub profile"
           >
-            <div className="p-4 bg-stone-900 rounded-full group-hover:bg-stone-800 group-hover:scale-110 transition-all border border-stone-800 group-hover:border-stone-700">
-              <Github size={24} className="group-hover:text-white" />
+            <div className="p-4 bg-stone-900/80 backdrop-blur-sm rounded-full group-hover:bg-stone-800 group-hover:scale-110 transition-all duration-300 border border-stone-800/50 group-hover:border-stone-700">
+              <Github size={28} className="group-hover:text-white transition-colors duration-300" />
             </div>
             <span className="text-sm font-medium">GitHub</span>
             <span className="text-xs text-stone-600 group-hover:text-stone-500">View my code</span>

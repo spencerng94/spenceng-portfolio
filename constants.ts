@@ -35,26 +35,38 @@ export const RESUME: ResumeData = {
   education: [
     {
       school: "University of Southern California",
-      degree: "Master of Science, Global Medicine"
+      degree: "Master of Science, Global Medicine",
+      courses: [
+        "Healthcare Informatics",
+        "Epidemiology"
+      ]
     },
     {
       school: "University of California, Los Angeles",
-      degree: "Bachelor of Science, Biological Sciences"
-    },
-    {
-      school: "Galvanize",
-      degree: "Advanced, Full-Stack Software Engineering Program"
+      degree: "Bachelor of Science, Biological Sciences",
+      courses: [
+        "Mathematics for Life Scientists",
+        "Statistics for Life Scientists",
+        "Laboratory & Scientific Methodology"
+      ]
     },
     {
       school: "Google",
       degree: "Google AI Essentials Specialization",
       year: "Oct 2025",
       courses: [
-        "Introduction to AI",
         "Maximize Productivity With AI Tools",
         "Discover the Art of Prompting",
         "Use AI Responsibly",
         "Stay Ahead of the AI Curve"
+      ]
+    },
+    {
+      school: "Galvanize",
+      degree: "Advanced, Full-Stack Software Engineering Program",
+      courses: [
+        "1000+ hour residency in SDLC and production-grade engineering",
+        "Full-stack architecture, microservices, and scalable API design"
       ]
     }
   ],
@@ -73,13 +85,3 @@ export const RESUME: ResumeData = {
     }
   ]
 };
-
-export const SYSTEM_INSTRUCTION = `You are an AI assistant for Spencer Ng's portfolio website.
-Your role is to answer questions about Spencer's professional experience, skills, and education based on his resume.
-Be professional, friendly, and concise.
-If asked about something not in the resume, politely state that you don't have that information.
-Do not make up information.
-
-Here is Spencer's Resume Data:
-${JSON.stringify(RESUME, null, 2)}
-`;

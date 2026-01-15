@@ -27,16 +27,3 @@ export interface ResumeData {
   education: Education[];
   skills: SkillCategory[];
 }
-
-export enum ChatSender {
-  USER = 'user',
-  BOT = 'bot'
-}
-
-export interface ChatMessage {
-  id: string;
-  text: string;
-  sender: ChatSender;
-  timestamp: number;
-  isTyping?: boolean;
-}
