@@ -86,10 +86,10 @@ const Hero: React.FC = () => {
 
           {/* Right Side - Profile Image (40%) */}
           <div className={`relative flex items-center justify-center lg:justify-end py-12 lg:py-12 transition-opacity duration-1000 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-            <div className="relative w-full max-w-full">
-              {/* Photo container with constrained dimensions and aspect ratio */}
+            <div className="relative w-full max-w-full px-4 sm:px-6 lg:px-8">
+              {/* Photo container with elegant vertical rectangle */}
               <div 
-                className="relative w-full overflow-hidden max-h-[500px] lg:max-h-[60vh] bg-stone-900/50"
+                className="relative w-full overflow-hidden rounded-2xl border border-stone-800/50 shadow-xl shadow-stone-900/50 bg-stone-900/50 min-h-[450px] max-h-[60vh] lg:max-h-none"
                 style={{
                   aspectRatio: '4 / 5',
                 }}
@@ -97,13 +97,9 @@ const Hero: React.FC = () => {
                 <img 
                   src="/images/spencer-ng.jpg" 
                   alt="Spencer Ng - Full Stack Software Engineer"
-                  className="w-full h-full"
+                  className="w-full h-full object-cover"
                   style={{
-                    objectFit: 'cover',
-                    objectPosition: 'center 20%',
-                    borderRadius: '1rem 0 0 1rem',
-                    maskImage: 'linear-gradient(to right, black 0%, black 80%, transparent 100%)',
-                    WebkitMaskImage: 'linear-gradient(to right, black 0%, black 80%, transparent 100%)',
+                    objectPosition: 'center 15%',
                   }}
                   loading="eager"
                   onError={(e) => {
@@ -111,7 +107,7 @@ const Hero: React.FC = () => {
                     target.style.display = 'none';
                     const parent = target.parentElement;
                     if (parent) {
-                      parent.innerHTML = '<div class="w-full h-full bg-stone-800 flex items-center justify-center text-stone-600" style="border-radius: 1rem 0 0 1rem;"><span>Photo</span></div>';
+                      parent.innerHTML = '<div class="w-full h-full bg-stone-800 flex items-center justify-center text-stone-600 rounded-2xl"><span>Photo</span></div>';
                     }
                   }}
                 />
